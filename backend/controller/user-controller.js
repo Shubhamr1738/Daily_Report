@@ -112,3 +112,21 @@ exports.addlabour = async (req, res) => {
       res.status(500).json({ message: err.message });
     }
   };
+
+
+exports.addLabourReports = async (req, res) => {
+  UserData.findOneAndUpdate({site: req.params.site}, { $push: { labourReport: {
+    name: req.body.name,
+    Skilled: req.body.Skilled,
+    Unskilled: req.body.Unskilled,
+    WorkDone: req.body.WorkDone
+} } }, {new: true}, (err, userData) => {
+if (err) {
+  return res.status(500).send(err);
+}
+if (!userData) {
+  return res.status(404).send('Site not found');
+}
+res.send(userData);
+})
+};
