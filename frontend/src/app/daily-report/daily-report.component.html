@@ -1,0 +1,175 @@
+{{sites |json }}
+<div class="container-fluid">
+   
+  <div class="card mt-2" >
+    <div class="card-body">
+        
+            
+               
+        <form>
+              <div class="row">
+                <div class="col">
+                    <label >Site :</label>
+                    <input type="text" class="form-control" id="staticEmail" class="form-control" name="site" [(ngModel)]="sites.site">
+                </div>
+                <div class="col-md-auto">
+                    <label >Day :</label>
+                    <input type="text"  class="form-control" id="staticEmail" name="day"[(ngModel)]="sites.day">
+                </div>
+                <div class="col col-lg-2">
+                   
+                    <label >Date :</label>
+                    <input type="date" class="form-control" id="staticEmail" name="date"[(ngModel)]="sites.date">
+                </div>
+              </div>
+              <button class="btn btn-primary" type="submit" (click)="saveSite()">Save</button>
+            </form>
+    </div>
+  </div>
+  
+</div>
+
+<mat-tab-group>
+    <mat-tab>   
+      <ng-template mat-tab-label>
+      
+       <h3>LABOUR REPORT</h3> 
+      </ng-template>
+     
+  <div class="card mt-2" >
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Skilled</th>
+                <th scope="col">Un-Skilled</th>
+                <th scope="col">Work Done</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of labourRow; let i = index;">
+<!--                 
+                <th scope="row"><input type="text" class="form-control" id="staticEmail"placeholder="Add Name here" name="name" [(ngModel)]="lr.name"></th>
+                <td><input type="text" id="staticEmail" class="form-control" placeholder="Add Number" name="skill" [(ngModel)]="lr.skill"></td>
+                <td><input type="text" id="staticEmail"placeholder="Add Number" class="form-control" name="unskill" [(ngModel)]="lr.unskill"></td>
+                <td> <textarea class="form-control" aria-label="With textarea" class="form-control" placeholder="Give details here" name="workdone" [(ngModel)]="lr.workdone"></textarea></td> -->
+                <td>
+                  <input [(ngModel)]="row.name" class="form-control" type="text"  [(ngModel)]="row.name"/>
+                </td>
+                <td>
+                  <input [(ngModel)]="row.skill" class="form-control" type="text"  [(ngModel)]="row.skill"/>
+                </td>
+                <td>
+                  <input [(ngModel)]="row.unskill" class="form-control" type="text"  [(ngModel)]="row.unskill"/>
+                </td>
+                <td>
+                  <input [(ngModel)]="row.workdone" class="form-control" type="text"  [(ngModel)]="row.workdone"/>
+                </td>
+                <td><button class="btn btn-danger" (click)="deleteRow(i)" style='cursor: pointer;'>Remove</button></td>
+             
+              </tr>
+
+            
+            </tbody>
+            <button class="btn btn-warning" (click)="addRow()">Add More</button>
+          </table>
+          <button class="btn btn-primary" (click)="saveLabour()">Save</button>
+
+       
+</div>
+</div>
+    </mat-tab>
+  
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <h3>CEMENT REPORT</h3>
+      </ng-template>
+      
+<div class="card mt-2"  >
+    <div class="card-body">
+        
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Opening Bal.</th>
+                <th scope="col">Cement Received</th>
+                <th scope="col">Total Stock</th>
+                <th scope="col">Consumption Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+            
+                <th scope="row"><input type="text" class="form-control" id="staticEmail"placeholder="Add Number" name="opnbal" [(ngModel)]="cr.opnbal"></th>
+                <td><input type="text" id="staticEmail" placeholder="Add Number" class="form-control" name="cmtrec" [(ngModel)]="cr.cmtrec"></td>
+                <td><input type="text" id="staticEmail"placeholder="Add Number" class="form-control" name="cmtrec" [(ngModel)]="cr.ttlstk"></td>
+                <td> <input type="text" id="staticEmail"placeholder="Add Number" class="form-control" name="consuption" [(ngModel)]="cr.consuption"></td>
+            
+              </tr> 
+            </tbody>
+          </table>
+          <button class="btn btn-primary" (click)="cementReport()">Save</button>
+  </div>
+  </div>
+    </mat-tab>
+  
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <h3>MATERIAL  REPORT</h3>
+      </ng-template>
+  
+<div class="card mt-2" >
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Material Received with Description</th>
+                <th scope="col">Supplier's Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Challan No</th>
+                <th scope="col">Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+            
+                <th scope="row"><input type="text"class="form-control" id="staticEmail"placeholder="Type here"name="mtrdesc" [(ngModel)]="mr.mtrdesc"></th>
+                <td><input class="form-control" type="text" id="staticEmail" placeholder="Type here"name="supplyrname" [(ngModel)]="mr.supplyrname"></td>
+                <td><input class="form-control" type="text" id="staticEmail"placeholder="Type here"name="qty" [(ngModel)]="mr.qty"></td>
+                <td> <input class="form-control" type="text" id="staticEmail"placeholder="Type here"name="challan" [(ngModel)]="mr.challan"></td>
+                <td> <input class="form-control" type="text" id="staticEmail"placeholder="Type here"name="time" [(ngModel)]="mr.time"></td>
+              </tr>
+            
+            </tbody>
+   
+            <button class="btn btn-warning">Add More</button>
+          </table>
+          
+          <button class="btn btn-primary  ml-2" (click)="materialReport()">Save</button>
+  </div>
+  </div>
+    </mat-tab>
+
+ 
+
+<mat-tab>
+    <ng-template mat-tab-label>
+      <h3>REMARKS</h3>
+    </ng-template>
+
+        <textarea class="form-control" aria-label="With textarea"placeholder="Give Remarks" name="remark" [(ngModel)]="remarks.remark"></textarea>
+
+        <button class="btn btn-primary " (click)="submitForm()">Submit</button>
+  </mat-tab>
+</mat-tab-group>
+
+<div>
+<table>
+
+<tr>
+
+</tr>
+
+</table>
+</div>
