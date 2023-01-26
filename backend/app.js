@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const mongoose = require('./db/dbConnection.js');
-const userRoutes = require('./routes/user-routes.js');
+const mongoose = require('./mongoDB/connection/db.js');
+const userDataRoutes = require('./routes/userData-routes.js');
+
+
 
 const app = express();
 app.use(bodyParser.json());
@@ -22,9 +24,8 @@ app.use((req, res, next) => {
     next();
   });
 
-  app.use('', userRoutes);
+  app.use('/user', userDataRoutes);
 
-app.listen(3000, () => {
+app.listen(3001, () => {
     console.log(`Server started on port 3000`);
 });
-
