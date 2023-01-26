@@ -1,8 +1,8 @@
 {
-  "name": "rutya",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "project-x",
+  "version": "0.0.1",
+  "description": "Created by Shubham Senpai",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,6 +12,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mongoose": "^6.8.4"
+    "mongoose": "^6.9.0",
+    "nodemon": "^2.0.20"
   }
 }
