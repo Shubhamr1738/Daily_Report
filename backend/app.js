@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('./mongoDB/connection/db.js');
 const userDataRoutes = require('./routes/userData-routes.js');
+const userFormRoutes = require('./routes/userForm-routes.js');
 
 
 
@@ -25,7 +26,8 @@ app.use((req, res, next) => {
   });
 
   app.use('/user', userDataRoutes);
+  app.use('', userFormRoutes);
 
-app.listen(3001, () => {
+app.listen(3000, () => {
     console.log(`Server started on port 3000`);
 });
