@@ -1,11 +1,11 @@
 const UserData = require('../mongoDB/models/userData-model');
-
+const UserForm = require('../mongoDB/models/userForm-model');
 
 exports.signupUserData = async (req, res,next) => {
     try {
       // Extracting user data from request body
-      const { firstName, lastName, username, email, password } = req.body;
-      if (!firstName || !lastName || !username || !email || !password) {
+      const { firstName, lastName, username, email, password,site } = req.body;
+      if (!firstName || !lastName || !username || !email || !password|| !site) {
         return res.status(400).json({ message: 'Missing required fields' });
       }    
       // Check if the user already exists
@@ -21,6 +21,7 @@ exports.signupUserData = async (req, res,next) => {
         username,
         email,
         password,
+        site,
       });
   
       // Save new user to the database
@@ -29,7 +30,6 @@ exports.signupUserData = async (req, res,next) => {
       // Return success message
       res.status(201).json({ message: 'User created successfully' });
     } catch (error) {
-      // Return error message
       res.status(500).json({ message: 'Error creating user', error });
     }
   };
@@ -63,3 +63,13 @@ exports.signupUserData = async (req, res,next) => {
         res.status(500).json({ message: 'Error while login', error });
     }    
 }
+
+exports.addSite = async (req, res) => {
+  try {
+  const newSite = new UserForm({site: req.body.site});
+  await newSite.save();
+  res.status(200).send({ message: 'Site added successfully', site: newSite });
+  } catch (err) {
+  res.status(500).send(err);
+  }
+  };

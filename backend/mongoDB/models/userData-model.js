@@ -26,6 +26,10 @@ const userDataSchema = new mongoose.Schema({
         required: true,
         minlength: 8
     },
+    site: {
+        type: String,
+        required: true
+    },
     createdAt: {
         type: Date,
         default: Date.now()
