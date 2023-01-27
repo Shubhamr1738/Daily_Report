@@ -71,3 +71,20 @@ exports.updateLabourReport = async (req, res) => {
     }
   );
 };
+
+exports.getLabourReports = async (req, res) => {
+  UserForm.findOne({ site: req.params.site }, (err, UserForm) => {
+    if (err) {
+      return res
+        .status(500)
+        .send({ message: "Error retrieving labour reports", error: err });
+    }
+    if (!UserForm) {
+      return res.status(404).send({ message: "Site not found" });
+    }
+    res.send({
+      message: "Labour reports retrieved successfully",
+      data: UserForm.labourReport,
+    });
+  });
+};
