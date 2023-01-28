@@ -24,9 +24,14 @@ const routes: Routes = [
     pathMatch:'full'
   },
   {
+<<<<<<< HEAD
+    path:'getlabour/:id',
+    component:GetlabourreportComponent,
+=======
     path:'admin',
     component:AdminComponent,
     pathMatch:'full'
+>>>>>>> 0ef837f37d62dd906e810179d7cb9149606af489
   },
   {
     path:'home',
