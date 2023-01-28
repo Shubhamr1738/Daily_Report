@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DailyReportComponent } from './daily-report/daily-report.component';
 import { LoginComponent } from './login/login.component';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,11 @@ const routes: Routes = [
   {
     path:'login',
     component:LoginComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'signup',
+    component:SignupComponent,
     pathMatch:'full'
   },
   
