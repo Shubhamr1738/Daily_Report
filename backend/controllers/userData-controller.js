@@ -73,3 +73,10 @@ exports.addSite = async (req, res) => {
   res.status(500).send(err);
   }
   };
+
+  exports.getAllUsers = (req, res) => {
+    UserData.find({}, (err, data) => {
+        if (err) return res.status(500).json({ success: false, message: "Failed to retrieve users", error: err });
+        res.status(200).json({ success: true, message: "Users retrieved successfully", data: data });
+    });
+};

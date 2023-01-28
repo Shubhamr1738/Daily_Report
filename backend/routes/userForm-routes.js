@@ -6,5 +6,5 @@ const userFormControl = require('../controllers/labourData-controller.js');
 router.post ('/addlabour/:id', userFormControl.addLabourReports);
 router.delete ('/delete/:site/:labourReportId', userFormControl.deleteLabourReport);
 router.put ('/update/:site/:labourReportId', userFormControl.updateLabourReport);
-router.get("/getlabour/:site", userFormControl.getLabourReports);
+router.get("/getlabour/:id", userFormControl.getLabourReports);
 module.exports = router;
