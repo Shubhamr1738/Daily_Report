@@ -4,6 +4,7 @@ import { DailyReportComponent } from './daily-report/daily-report.component';
 import { LoginComponent } from './login/login.component';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
+import { GetlabourreportComponent } from './getlabourreport/getlabourreport.component';
 
 const routes: Routes = [
   {
@@ -21,12 +22,17 @@ const routes: Routes = [
     component:SignupComponent,
     pathMatch:'full'
   },
-  
+  {
+    path:'getlabour/:id',
+    component:GetlabourreportComponent,
+    pathMatch:'full'
+  },
+
   ];
-  
+
   @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
   })
   export class AppRoutingModule { }
-  
+

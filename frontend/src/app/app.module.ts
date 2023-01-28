@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { GetlabourreportComponent } from './getlabourreport/getlabourreport.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SignupComponent } from './signup/signup.component';
     TestingtempComponent,
     LoginComponent,
     SignupComponent,
+    GetlabourreportComponent,
     
   
   ],

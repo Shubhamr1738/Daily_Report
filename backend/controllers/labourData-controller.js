@@ -73,7 +73,7 @@ exports.updateLabourReport = async (req, res) => {
 };
 
 exports.getLabourReports = async (req, res) => {
-  UserForm.findOne({ site: req.params.site }, (err, UserForm) => {
+  UserForm.findOne({ _id: req.params.id }, (err, UserForm) => {
     if (err) {
       return res
         .status(500)
