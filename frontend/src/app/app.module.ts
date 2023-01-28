@@ -9,11 +9,20 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
 import{TestingService} from './services/testing.service'
 import { HttpClientModule } from '@angular/common/http';
+import { TestingtempComponent } from './testingtemp/testingtemp.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DailyReportComponent
+    DailyReportComponent,
+    TestingtempComponent,
+    LoginComponent,
+    
+  
   ],
   imports: [
     BrowserModule,
@@ -22,7 +31,16 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatTabsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    MatCardModule
+
     
   ],
   providers: [TestingService],

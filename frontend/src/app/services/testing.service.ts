@@ -10,7 +10,7 @@ import { CementReport } from '../daily-report/models/CementReport';
   providedIn: 'root'
 })
 export class TestingService {
-  private  URL = 'http://localhost:3000/employees';
+  private  URL = 'http://localhost:3000/addlabour';
 
 
   constructor(private http:HttpClient) { }
@@ -39,10 +39,10 @@ export class TestingService {
     return this.http.post(`${this.URL}`,
     sites)
   }
-  SaveLabour(lr:LabourReport): Observable<Object> {
+  SaveLabour(lr:LabourReport,sites:SiteData): Observable<Object> {
     console.log('Request is sent!');
     console.log(lr)
-    return this.http.post(`${this.URL}`,
+    return this.http.post(`${this.URL}/`,
     lr)
   }
   SaveCement(cr:CementReport): Observable<Object> {

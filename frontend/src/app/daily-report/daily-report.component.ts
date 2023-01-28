@@ -43,6 +43,7 @@ export class DailyReportComponent implements OnInit {
 }]
   }
   saveSite(){
+   
     console.log(this.sites)
     this.test.AddItems(this.sites).subscribe(
       (data:any)=>{
@@ -55,8 +56,8 @@ export class DailyReportComponent implements OnInit {
   
   saveLabour(){
     console.log("Save Labour")
-    console.log(this.labourRow)
-    this.test.SaveLabour(this.labourRow).subscribe(
+    console.log("Labourrow",this.labourRow)
+    this.test.SaveLabour(this.labourRow,this.sites).subscribe(
       (data:any)=>{
         //success
         console.log("Labours r saved")
