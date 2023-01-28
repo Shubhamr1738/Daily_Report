@@ -1,1 +1,10 @@
 <p>getlabourreport works!</p>
+<div *ngIf="labourData">
+  <div *ngFor="let ld of labourData; let i = index;">
+  <h2>Labour Data</h2>
+  <p>Name: {{ ld.name }}</p>
+  <p>Skilled: {{ ld.skilled }}</p>
+  <p>Unskilled: {{ ld.unskilled }}</p>
+  <p>Work Done: {{ ld.workDone }}</p>
+</div>
+</div>
