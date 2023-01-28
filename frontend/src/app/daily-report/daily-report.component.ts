@@ -7,6 +7,9 @@ import{MaterialReport} from './models/MaterialReport'
 import{Remarks} from './models/Remarks'
 import { Observable } from 'rxjs';
 import { TestingService } from '../services/testing.service';
+import { map, catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-daily-report',
   templateUrl: './daily-report.component.html',
@@ -23,8 +26,9 @@ export class DailyReportComponent implements OnInit {
   mr=new MaterialReport()
   remarks=new Remarks()
   data:any;
-  labourRow:any=[]
-  // Lr:LabourReport[]=[{}]
+  labourRow:any=[{}]
+  materialRow:any=[]
+  
   
  
   
@@ -41,6 +45,12 @@ export class DailyReportComponent implements OnInit {
       unskill:'',
       workdone:''
 }]
+this.materialRow = [{
+  name:'',
+  skill:'',
+  unskill:'',
+  workdone:''
+}]
   }
   saveSite(){
    
@@ -52,19 +62,32 @@ export class DailyReportComponent implements OnInit {
 
     },
     error=>console.log(error));
+    
   }
   
   saveLabour(){
     console.log("Save Labour")
-    console.log("Labourrow",this.labourRow)
-    this.test.SaveLabour(this.labourRow,this.sites).subscribe(
-      (data:any)=>{
-        //success
-        console.log("Labours r saved")
-        console.log(data);
+    console.log("Labour row",this.labourRow)
+    // this.test.SaveLabour(this.labourRow,this.sites).subscribe(
+    //   (data:any)=>{
+    //     //success
+    //     console.log("Labours r saved")
+    //     console.log(data);
 
-    },
-    error=>console.log(error));
+    // },
+    // error=>console.log(error));
+    this.test.SaveLabour(this.labourRow)
+    .pipe(
+      map(res => {
+          console.log(res);
+          console.log("Done Succesfully");
+          // do something with successful response
+      }),
+      catchError(error => {
+          // do something with error
+          return throwError(error.error.message);
+      })
+    ).subscribe();
   }
   cementReport(){
     console.log(this.cr)

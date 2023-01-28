@@ -35,7 +35,7 @@ export class SignupComponent implements OnInit {
       map(res => {
           console.log(res);
           // do something with successful response
-          this.router.navigate(['/..']);
+          this.router.navigate(['/admin']);
       }),
       catchError(error => {
           // do something with error

@@ -39,11 +39,10 @@ export class TestingService {
     return this.http.post(`${this.URL}`,
     sites)
   }
-  SaveLabour(lr:LabourReport,sites:SiteData): Observable<Object> {
+  SaveLabour(lr:LabourReport): Observable<Object> {
     console.log('Request is sent!');
-    console.log(lr)
-    return this.http.post(`${this.URL}/`,
-    lr)
+    console.log("in service",lr)
+    return this.http.post(`${this.URL}/63d2c66fa3baf84a8ba2ce08`,lr);
   }
   SaveCement(cr:CementReport): Observable<Object> {
     console.log('Request is sent!');

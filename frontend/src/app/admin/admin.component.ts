@@ -11,14 +11,14 @@ import { GetalldataService } from './getalldata.service';
   styleUrls: ['./admin.component.css']
 })
  
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit  {
   
-  
-  @ViewChild(MatTable, {static:false}) table: MatTable<any>;
+  table:any
+  // @ViewChild(MatTable, {static:false}) table: MatTable<any>;
   // displayedColumns: string[] = ['demo-firstName', 'demo-lastName', 'demo-email', 'demo-username','demo-password', 'demo-sites'];
   dataSource:any
   constructor(private dataService: GetalldataService) {}
-  displayedColumns: string[] = ['demo-position', 'demo-name', 'demo-weight', 'demo-symbol','demo-password', 'demo-site'];
+  displayedColumns: string[] = ['demo-position', 'demo-name', 'demo-weight', 'demo-symbol','demo-password', 'demo-site','demo-delete'];
 
   
   
@@ -29,12 +29,13 @@ export class AdminComponent implements OnInit {
       this.dataSource=data.data;
     });
   }
-  
 
-
-  removeData() {
-    this.dataSource.pop();
-    this.table.renderRows();
+  deleteUser(){
+    
   }
+  
+ 
+
+  
 }
 
