@@ -1,5 +1,5 @@
-{{sites |json }}
-<div class="container-fluid">
+
+<div class="container">
    
   <div class="card mt-2" >
     <div class="card-body">
@@ -27,7 +27,7 @@
     </div>
   </div>
   
-</div>
+
 
 <mat-tab-group>
     <mat-tab>   
@@ -38,6 +38,7 @@
      
   <div class="card mt-2" >
     <div class="card-body">
+      
         <table class="table table-hover">
             <thead>
               <tr>
@@ -55,16 +56,16 @@
                 <td><input type="text" id="staticEmail"placeholder="Add Number" class="form-control" name="unskill" [(ngModel)]="lr.unskill"></td>
                 <td> <textarea class="form-control" aria-label="With textarea" class="form-control" placeholder="Give details here" name="workdone" [(ngModel)]="lr.workdone"></textarea></td> -->
                 <td>
-                  <input [(ngModel)]="row.name" class="form-control" type="text"  [(ngModel)]="row.name"/>
+                  <input [(ngModel)]="row.name" class="form-control" type="text" placeholder="add name" [(ngModel)]="row.name"/>
                 </td>
                 <td>
-                  <input [(ngModel)]="row.skill" class="form-control" type="text"  [(ngModel)]="row.skill"/>
+                  <input [(ngModel)]="row.skill" class="form-control" type="text" placeholder="add points" [(ngModel)]="row.skill"/>
                 </td>
                 <td>
-                  <input [(ngModel)]="row.unskill" class="form-control" type="text"  [(ngModel)]="row.unskill"/>
+                  <input [(ngModel)]="row.unskill" class="form-control" type="text" placeholder="add points" [(ngModel)]="row.unskill"/>
                 </td>
                 <td>
-                  <input [(ngModel)]="row.workdone" class="form-control" type="text"  [(ngModel)]="row.workdone"/>
+                  <textarea class="form-control" [(ngModel)]="row.workdone "aria-label="With textarea" class="form-control" placeholder="Give details here" name="workdone" [(ngModel)]="row.workdone"></textarea>
                 </td>
                 <td><button class="btn btn-danger" (click)="deleteRow(i)" style='cursor: pointer;'>Remove</button></td>
              
@@ -164,12 +165,4 @@
   </mat-tab>
 </mat-tab-group>
 
-<div>
-<table>
-
-<tr>
-
-</tr>
-
-</table>
 </div>

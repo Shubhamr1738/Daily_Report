@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {SignupService} from "./signup.service"
 import { map, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { throwError } from 'rxjs';
 export class SignupComponent implements OnInit {
 
   signupForm:any
-  constructor(private formBuilder: FormBuilder, private signupService: SignupService) { }
+  constructor(private formBuilder: FormBuilder, private signupService: SignupService,private router:Router) { }
 
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
@@ -29,11 +30,12 @@ export class SignupComponent implements OnInit {
 
   signupUser() {
     console.log(this.signupForm.value)
-    this.signupService.loginUserData(this.signupForm.value)
+    this.signupService.RegisterUserData(this.signupForm.value)
     .pipe(
       map(res => {
           console.log(res);
           // do something with successful response
+          this.router.navigate(['/admin']);
       }),
       catchError(error => {
           // do something with error
