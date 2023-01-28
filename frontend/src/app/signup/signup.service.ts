@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class SignupService {
   constructor(private http: HttpClient) { }
 
-  loginUserData(data:any): Observable<any> {
+  RegisterUserData(data:any): Observable<any> {
     return this.http.post<any>('http://localhost:3000/user/signup', data);
   }
 }

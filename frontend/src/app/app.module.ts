@@ -11,11 +11,12 @@ import{TestingService} from './services/testing.service'
 import { HttpClientModule } from '@angular/common/http';
 import { TestingtempComponent } from './testingtemp/testingtemp.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {MatTableModule} from '@angular/material/table';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { GetlabourreportComponent } from './getlabourreport/getlabourreport.component';
+import { AdminComponent } from './admin/admin.component';
+import { GetalldataService } from './admin/getalldata.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { GetlabourreportComponent } from './getlabourreport/getlabourreport.comp
     TestingtempComponent,
     LoginComponent,
     SignupComponent,
-    GetlabourreportComponent,
+    AdminComponent,
     
   
   ],
@@ -43,11 +44,12 @@ import { GetlabourreportComponent } from './getlabourreport/getlabourreport.comp
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
 
     
   ],
-  providers: [TestingService],
+  providers: [TestingService,GetalldataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
