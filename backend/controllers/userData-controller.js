@@ -37,18 +37,18 @@ exports.signupUserData = async (req, res,next) => {
   exports.loginUserData = async (req, res,next) => {
     try {
         // Extracting user data from request body
-        const { username, email, password } = req.body;
-        if(!username && !email) {
-            return res.status(400).json({ message: 'username or email is required' });
+        const { username, password } = req.body;
+        if(!username) {
+            return res.status(400).json({ message: 'username is required' });
         }
         if(!password) {
             return res.status(400).json({ message: 'password is required' });
         }
 
         // Check if the user already exists
-        const existingUser = await UserData.findOne({ $or: [{email: email}, {username: username}]});
+        const existingUser = await UserData.findOne({username: username});
         if (!existingUser) {
-            return res.status(401).json({ message: 'Invalid email or username' });
+            return res.status(401).json({ message: 'Invalid username' });
         }
 
         // check if password match

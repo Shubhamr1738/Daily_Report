@@ -1,14 +1,10 @@
 const express = require("express")
 const router = express.Router();
 
+const userFormControl = require('../controllers/labourData-controller.js');
 
-const addLabourReports = require('../controllers/labourData-controller.js');
-const deleteLabourReport = require('../controllers/labourData-controller.js');
-const updateLabourReport = require('../controllers/labourData-controller.js');
-const getLabourReports = require("../controllers/labourData-controller.js");;
-
-router.post ('/addlabour/:site', addLabourReports.addLabourReports);
-router.delete ('/delete/:site/:labourReportId', deleteLabourReport.deleteLabourReport);
-router.put ('/update/:site/:labourReportId', updateLabourReport.updateLabourReport);
-router.get("/getlabour/:site", getLabourReports.getLabourReports);
+router.post ('/addlabour/:id', userFormControl.addLabourReports);
+router.delete ('/delete/:site/:labourReportId', userFormControl.deleteLabourReport);
+router.put ('/update/:site/:labourReportId', userFormControl.updateLabourReport);
+router.get("/getlabour/:site", userFormControl.getLabourReports);
 module.exports = router;

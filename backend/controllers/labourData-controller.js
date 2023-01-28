@@ -2,7 +2,7 @@ const UserForm = require("../mongoDB/models/userForm-model.js");
 
 exports.addLabourReports = async (req, res) => {
   UserForm.findOneAndUpdate(
-    { site: req.params.site },
+    { _id: req.params.id },
     {
       $push: {
         labourReport: {
