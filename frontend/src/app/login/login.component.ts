@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {LoginService} from "./login.service"
 import { map, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { throwError } from 'rxjs';
 export class LoginComponent implements OnInit {
   
   loginForm:any
-  constructor(private formBuilder: FormBuilder, private loginService: LoginService) { }
+  constructor(private formBuilder: FormBuilder, private loginService: LoginService,private router:Router) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
       map(res => {
           console.log(res);
           // do something with successful response
+          this.router.navigate(['/forms']);
       }),
       catchError(error => {
           // do something with error
