@@ -1,0 +1,138 @@
+
+
+
+<form [formGroup]="Report" (ngSubmit)="callingFunction()">
+    <h3>Daily Report
+</h3>
+
+  <label>
+    Site:
+    <input type="text" formControlName="Site">
+  </label> <br>
+<label>
+    Day:
+    <input type="text" formControlName="Day">
+  </label> <br>
+<label>
+   Date:
+    <input type="date" formControlName="Date">
+  </label>
+
+
+
+
+<mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+    <mat-tab label="First"> 
+        <div formGroupName="labourReport">
+            <h3>Labour Report </h3>
+        
+            <label>
+              Name:
+              <input type="text" formControlName="Name">
+            </label> <br>
+        
+            <label>
+              Skill:
+              <input type="text" formControlName="Skill">
+            </label>
+            <label>
+                Unskill:
+                <input type="text" formControlName="Unskill">
+              </label> <br>
+          
+              <label>
+                Workdone:
+                <input type="text" formControlName="Workdone">
+              </label>
+          </div> 
+        
+          <button class="btn btn-primary"   (click)="addLabour()">Submit Application</button>
+        
+        </mat-tab>
+
+
+
+
+
+    <mat-tab label="Second"> 
+        <div formGroupName="cementReport">
+        <h3>Cement Report</h3>
+    
+        <label>
+          Opening Bal:
+          <input type="text" formControlName="OpeningBal">
+        </label> <br>
+    
+        <label>
+          Cement Received:
+          <input type="text" formControlName="CementReceived">
+        </label>
+        <label>
+            Total Stock:
+            <input type="text" formControlName="TotalStock">
+          </label> <br>
+      
+          <label>
+            Consumption Details:
+            <input type="text" formControlName="ConsumptionDetails">
+          </label>
+          <label>
+            Closing Balance:
+            <input type="text" formControlName="ClosingBalance">
+          </label>
+      </div>
+      
+    </mat-tab>
+
+
+
+
+    <mat-tab label="Third"> <div formGroupName="materialReport">
+        <h3>Material Report</h3>
+    
+        <label>
+          Material:
+          <input type="text" formControlName="Material">
+        </label> <br>
+    
+        <label>
+            Supplier Name:
+          <input type="text" formControlName="SupplierName">
+        </label>
+        <label>
+            Quantity:
+            <input type="text" formControlName="Quantity">
+          </label> <br>
+      
+          <label>
+            Challan No:
+            <input type="text" formControlName="ChallanNo">
+          </label>
+          <label>
+            Time:
+            <input type="text" formControlName="Time">
+          </label>
+        </div>
+        <button class="btn btn-warning">Add More</button>
+    </mat-tab>
+
+
+
+
+    <mat-tab label="Fourth">
+        <div formGroupName="Remark">
+            <h3>Remarks</h3>
+        
+            <label>
+                Remark:
+              <input type="text" formControlName="remark">
+            </label> <br>
+        <button type="submit">Submit Application</button>
+    </div>
+    </mat-tab>
+    
+  </mat-tab-group>
+
+  
+ 
+</form>
