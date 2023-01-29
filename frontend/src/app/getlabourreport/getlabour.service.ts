@@ -1,7 +1,7 @@
 //service
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { LabourData } from './labourData.model';
+import { LabourData } from 'labourData.model';
 import { map, Subject } from 'rxjs';
 
 @Injectable({

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
-import { LabourData } from './labourData.model';
+import { LabourData } from 'labourData.model';
 import { GetlabourService } from './getlabour.service';
 import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 @Component({
 selector: 'app-getlabourreport',
 templateUrl: './getlabourreport.component.html',
@@ -21,12 +22,8 @@ this.route.params.subscribe(params => {
 this.id=params['id'];
 });
 this.getlabourService.getLaborData(this.id).subscribe((laborData) => {
-  console.log(laborData);
   this.labourData=laborData;
   this.labourDataUpdated.next([...this.labourData]);
-
-  console.log(this.labourData);
-
   });
 }
 
