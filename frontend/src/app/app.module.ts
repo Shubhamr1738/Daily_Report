@@ -18,6 +18,8 @@ import { SignupComponent } from './signup/signup.component';
 import { AdminComponent } from './admin/admin.component';
 import { GetalldataService } from './admin/getalldata.service';
 import { HomeComponent } from './home/home.component';
+import { CommonModule } from '@angular/common';
+import { GetlabourreportComponent } from './getlabourreport/getlabourreport.component';
 
 
 @NgModule({
@@ -29,8 +31,9 @@ import { HomeComponent } from './home/home.component';
     SignupComponent,
     AdminComponent,
     HomeComponent,
-    
-  
+    GetlabourreportComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -48,9 +51,10 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     HttpClientModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    CommonModule
 
-    
+
   ],
   providers: [TestingService,GetalldataService],
   bootstrap: [AppComponent]
