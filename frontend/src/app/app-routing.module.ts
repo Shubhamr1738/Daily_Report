@@ -6,7 +6,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
-import { GetlabourreportComponent } from './getlabourreport/getlabourreport.component';
+
 const routes: Routes = [
   {
     path:'forms',
@@ -24,10 +24,6 @@ const routes: Routes = [
     pathMatch:'full'
   },
   {
-    path:'getlabour/:id',
-    component:GetlabourreportComponent,
-	},
-	{
     path:'admin',
     component:AdminComponent,
     pathMatch:'full'
@@ -37,12 +33,12 @@ const routes: Routes = [
     component:HomeComponent,
     pathMatch:'full'
   },
-
+  
   ];
-
+  
   @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
   })
   export class AppRoutingModule { }
-
+  

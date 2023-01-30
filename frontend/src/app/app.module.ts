@@ -18,8 +18,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AdminComponent } from './admin/admin.component';
 import { GetalldataService } from './admin/getalldata.service';
 import { HomeComponent } from './home/home.component';
-import { CommonModule } from '@angular/common';
-import { GetlabourreportComponent } from './getlabourreport/getlabourreport.component';
+import { LabourReportComponent } from './labour-report/labour-report.component';
 
 
 @NgModule({
@@ -31,9 +30,9 @@ import { GetlabourreportComponent } from './getlabourreport/getlabourreport.comp
     SignupComponent,
     AdminComponent,
     HomeComponent,
-    GetlabourreportComponent,
-
-
+    LabourReportComponent,
+    
+  
   ],
   imports: [
     BrowserModule,
@@ -51,10 +50,9 @@ import { GetlabourreportComponent } from './getlabourreport/getlabourreport.comp
     FormsModule,
     HttpClientModule,
     MatCardModule,
-    MatTableModule,
-    CommonModule
+    MatTableModule
 
-
+    
   ],
   providers: [TestingService,GetalldataService],
   bootstrap: [AppComponent]

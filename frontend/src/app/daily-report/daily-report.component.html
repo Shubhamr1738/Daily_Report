@@ -35,7 +35,7 @@
       
        <h3>LABOUR REPORT</h3> 
       </ng-template>
-     
+<!--      
   <div class="card mt-2" >
     <div class="card-body">
       
@@ -49,12 +49,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let row of labourRow; let i = index;">
-<!--                 
+              <tr *ngFor="let row of labourRow; let i = index;">                
                 <th scope="row"><input type="text" class="form-control" id="staticEmail"placeholder="Add Name here" name="name" [(ngModel)]="lr.name"></th>
                 <td><input type="text" id="staticEmail" class="form-control" placeholder="Add Number" name="skill" [(ngModel)]="lr.skill"></td>
                 <td><input type="text" id="staticEmail"placeholder="Add Number" class="form-control" name="unskill" [(ngModel)]="lr.unskill"></td>
-                <td> <textarea class="form-control" aria-label="With textarea" class="form-control" placeholder="Give details here" name="workdone" [(ngModel)]="lr.workdone"></textarea></td> -->
+                <td> <textarea class="form-control" aria-label="With textarea" class="form-control" placeholder="Give details here" name="workdone" [(ngModel)]="lr.workdone"></textarea></td> 
                 <td>
                   <input [(ngModel)]="row.name" class="form-control" type="text" placeholder="add name" [(ngModel)]="row.name"/>
                 </td>
@@ -77,9 +76,11 @@
           </table>
           <button class="btn btn-primary" (click)="saveLabour()">Save</button>
 
-       
+        
 </div>
-</div>
+</div>-->
+<app-labour-report></app-labour-report>
+
     </mat-tab>
   
     <mat-tab>

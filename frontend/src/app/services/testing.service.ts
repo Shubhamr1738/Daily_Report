@@ -33,13 +33,13 @@ export class TestingService {
   }
 
 
-  AddItems(sites:SiteData): Observable<Object> {
+  AddItems(sites:SiteData): Observable<any> {
     console.log('Request is sent!');
     console.log(sites)
     return this.http.post(`${this.URL}`,
     sites)
   }
-  SaveLabour(lr:LabourReport): Observable<Object> {
+  SaveLabour(lr:any[]): Observable<Object> {
     console.log('Request is sent!');
     console.log("in service",lr)
     return this.http.post(`${this.URL}/63d2c66fa3baf84a8ba2ce08`,lr);
