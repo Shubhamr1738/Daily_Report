@@ -1,23 +1,17 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTable } from '@angular/material/table';
-import { MatTabLabel } from '@angular/material/tabs';
-import { filter } from 'rxjs';
-import { GetalldataService } from './getalldata.service';
-
+import { Component, OnInit } from '@angular/core';
+import{AdminService} from '../services/admin.service'
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
- 
-export class AdminComponent implements OnInit  {
-  
+export class AdminComponent implements OnInit {
+
   table:any
   // @ViewChild(MatTable, {static:false}) table: MatTable<any>;
   // displayedColumns: string[] = ['demo-firstName', 'demo-lastName', 'demo-email', 'demo-username','demo-password', 'demo-sites'];
   dataSource:any
-  constructor(private dataService: GetalldataService) {}
+  constructor(private dataService: AdminService) {}
   displayedColumns: string[] = ['demo-position', 'demo-name', 'demo-weight', 'demo-symbol','demo-password', 'demo-site','demo-delete'];
 
   
@@ -36,6 +30,4 @@ export class AdminComponent implements OnInit  {
   
  
 
-  
 }
-

@@ -1,21 +1,32 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DailyReportComponent } from './daily-report/daily-report.component';
-import { LoginComponent } from './login/login.component';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { SignupComponent } from './signup/signup.component';
 import { AdminComponent } from './admin/admin.component';
+import { AllreportsComponent } from './allreports/allreports.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { ReportsComponent } from './reports/reports.component';
+import { SignupComponent } from './signup/signup.component';
+import { SiteComponent } from './site/site.component';
 
 const routes: Routes = [
   {
-    path:'forms',
-    component:DailyReportComponent,
+    path:'',
+    component:LoginComponent,
     pathMatch:'full'
   },
   {
-    path:'',
-    component:LoginComponent,
+    path:'admin',
+    component:AdminComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'home',
+    component:HomeComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'reports',
+    component:ReportsComponent,
     pathMatch:'full'
   },
   {
@@ -23,27 +34,27 @@ const routes: Routes = [
     component:SignupComponent,
     pathMatch:'full'
   },
+  
   {
-<<<<<<< HEAD
-    path:'admin',
-    component:AdminComponent,
-    pathMatch:'full'
-=======
-    path:'getlabour/:id',
-    component:GetlabourreportComponent,
->>>>>>> d4aafe047d5db4849450dc8ff8a81f2ab4d70e22
-  },
-  {
-    path:'home',
-    component:HomeComponent,
+    path:'login',
+    component:LoginComponent,
     pathMatch:'full'
   },
+  {
+    path:'allreports',
+    component:AllreportsComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'site',
+    component:SiteComponent,
+    pathMatch:'full'
+  },
   
-  ];
-  
-  @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
-  })
-  export class AppRoutingModule { }
-  
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

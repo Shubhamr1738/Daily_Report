@@ -1,17 +1,16 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {LoginService} from "./login.service"
+import {LoginService} from '../services/login.service';
 import { map, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
+
   loginForm:any
   constructor(private formBuilder: FormBuilder, private loginService: LoginService,private router:Router) { }
 
@@ -29,7 +28,7 @@ export class LoginComponent implements OnInit {
       map(res => {
           console.log(res);
           // do something with successful response
-          this.router.navigate(['/forms']);
+          this.router.navigate(['/home']);
       }),
       catchError(error => {
           // do something with error
@@ -37,4 +36,5 @@ export class LoginComponent implements OnInit {
       })
     ).subscribe();
   }
+
 }

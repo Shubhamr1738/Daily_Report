@@ -1,3 +1,3 @@
-let baseUrl="http://localhost:3000";
+let URL="http://localhost:3000";
 
-export default baseUrl;
+export default URL;
