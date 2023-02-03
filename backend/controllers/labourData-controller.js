@@ -1,4 +1,5 @@
 const UserForm = require("../mongoDB/models/userForm-model.js");
+const mongoose =require('mongoose');
 
 exports.addLabourReports = async (req, res) => {
   UserForm.findOneAndUpdate(
@@ -25,6 +26,7 @@ exports.addLabourReports = async (req, res) => {
     }
   );
 };
+/*
 exports.deleteLabourReport = async (req, res) => {
   UserForm.findOneAndUpdate(
     { site: req.params.site },
@@ -47,7 +49,46 @@ exports.deleteLabourReport = async (req, res) => {
     }
   );
 };
+*/
 
+
+exports.deleteLabour = async (req, res) => {
+  try {
+      const labourReportId = req.params.labourReportId;
+
+      const userForms = await UserForm.find({ "labourReport._id": labourReportId });
+      
+      if (!userForms.length) {
+        return res.status(404).json({
+          success: false,
+          message: 'Labour report not found'
+        });
+      }
+      
+      for (let i = 0; i < userForms.length; i++) {
+          const userForm = userForms[i];
+          const labourReportIndex = userForm.labourReport.findIndex(labourReport => labourReport._id.toString() === labourReportId);
+
+          userForm.labourReport.splice(labourReportIndex, 1);
+          await userForm.save();
+      }
+
+      res.status(200).json({
+          success: true,
+          message: 'Labour report deleted successfully'
+      });
+  } catch (err) {
+      res.status(500).json({
+          success: false,
+          message: 'Failed to delete labour report',
+          error: err
+      });
+  }
+};
+
+
+
+/*
 exports.updateLabourReport = async (req, res) => {
   UserForm.findOneAndUpdate(
     { site: req.params.site, "labourReport._id": req.params.labourReportId },
@@ -71,7 +112,7 @@ exports.updateLabourReport = async (req, res) => {
     }
   );
 };
-
+*/
 exports.getLabourReports = async (req, res) => {
   UserForm.findOne({ _id: req.params.id }, (err, UserForm) => {
     if (err) {
@@ -87,4 +128,40 @@ exports.getLabourReports = async (req, res) => {
       data: UserForm.labourReport,
     });
   });
+};
+
+
+exports.updateLabour = async (req, res) => {
+  try {
+    const labourReportId = req.params.labourReportId;
+    const updates = req.body;
+
+    const userForms = await UserForm.find({ "labourReport._id": labourReportId });
+    
+    if (!userForms.length) {
+        return res.status(404).json({
+            success: false,
+            message: 'Labour report not found'
+        });
+    }
+
+    for (let i = 0; i < userForms.length; i++) {
+        const userForm = userForms[i];
+        const labourReportIndex = userForm.labourReport.findIndex(labourReport => labourReport._id.toString() === labourReportId);
+
+        userForm.labourReport[labourReportIndex] = updates;
+        await userForm.save();
+    }
+
+    res.status(200).json({
+        success: true,
+        message: 'Labour report updated successfully'
+    });
+  } catch (err) {
+    res.status(500).json({
+        success: false,
+        message: 'Failed to update labour report',
+        error: err
+    });
+  }
 };

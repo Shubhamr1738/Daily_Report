@@ -63,6 +63,13 @@ exports.signupUserData = async (req, res,next) => {
         res.status(500).json({ message: 'Error while login', error });
     }    
 }
+exports.getAllUsers = (req, res) => {
+  UserData.find({}, (err, data) => {
+      if (err) return res.status(500).json({ success: false, message: "Failed to retrieve users", error: err });
+      res.status(200).json({ success: true, message: "Users retrieved successfully", data: data });
+  });
+};
+
 
 exports.addSite = async (req, res) => {
   try {
@@ -74,9 +81,16 @@ exports.addSite = async (req, res) => {
   }
   };
 
-  exports.getAllUsers = (req, res) => {
-    UserData.find({}, (err, data) => {
-        if (err) return res.status(500).json({ success: false, message: "Failed to retrieve users", error: err });
-        res.status(200).json({ success: true, message: "Users retrieved successfully", data: data });
-    });
-};
+  exports.updateSite = async (req, res) => {
+    try {
+      const success = await UserForm.updateOne({ _id: req.params.id }, { $set: { site: req.body.site } });
+      if (success.nModified > 0) {
+        res.status(200).json({ message: 'Site updated successfully' });
+      } else {
+        res.status(404).json({ message: 'Site not found' });
+      }
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+

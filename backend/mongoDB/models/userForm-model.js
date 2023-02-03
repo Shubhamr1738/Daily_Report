@@ -22,7 +22,7 @@ labourReport:[{
         type:String
     },
 }],
-cementReport:{
+cementReports:{
     openingBalance: {
         type:Number
     },
