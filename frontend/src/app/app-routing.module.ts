@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { ReportsComponent } from './reports/reports.component';
 import { SignupComponent } from './signup/signup.component';
 import { SiteComponent } from './site/site.component';
-
+import { LabourReportComponent } from './labour-report/labour-report.component';
 const routes: Routes = [
   {
     path:'',
@@ -38,6 +38,14 @@ const routes: Routes = [
   {
     path:'login',
     component:LoginComponent,
+  },
+  {
+    path:'getlabour/:id',
+    component:LabourReportComponent,
+	},
+{
+   path:'admin',
+    component:AdminComponent,
     pathMatch:'full'
   },
   {
